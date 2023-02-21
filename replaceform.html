@@ -1,0 +1,115 @@
+<html>
+	<head> <title> library | CREATE records </title> <head>
+<style>
+h2 { position: absolute;
+  top: 50px;
+
+text-align: center;background-color:#303030;color:rgb(0, 0, 0);font-family:Georgia;}
+div{text-align: center;background-color:#000000;font-family:Arial; }
+.bg-image{
+filter: (3px);
+height: 100%; 
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;}
+.contentblock{
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.6); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 30%;
+  padding: 20px;
+  text-align: center;
+  font-family:Arial;
+}
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+
+.topnav a {
+  float: left;
+  
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  vertical-align: top;
+}
+
+
+.topnav a:hover {
+  
+  color: black;
+}
+
+
+.topnav a.active {
+  background-color: #04AA6D;
+  
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #303030;
+  color: white;
+  text-align: center;
+}
+
+</style>
+
+
+<div class="topnav">
+  <a class="active" href="/">Store</a>
+  <a href="/Reach">Reach US</a>
+</div><div class="bg-image">
+<img src="{{url_for('static', filename='desk.jpg')}}" />
+	</div>
+	<body>
+		<h2> update The records</h2>
+		<div class="contentblock">
+		{%for x in data%}
+		<form method="POST" action="/update/{{x.0}}">
+			<table border='1' align='center' width=300px style="color:white">
+			
+			<tr>
+			<td> Pustak: </td>
+			<td><input type="text" name="Pustak" value="{{x.1}}"/></td>	
+			</tr>
+			<tr>
+			<td> Category: </td>
+			<td><input type="text" name="Category" value="{{x.2}}"/></td>	
+			</tr>
+			<tr>
+			<td> Author: </td>
+			<td><input type="text" name="Author" value="{{x.3}}"/></td>	
+			</tr>
+			<tr>
+        <td> Price: </td>
+        <td><input type="text" name="Price" value="{{x.4}}"/></td>	
+        </tr><br>
+        <tr>
+			<td><input type="submit" name="send"/></td>	
+			</tr>
+			
+			</table>
+			
+	</form>
+	{%endfor%}
+	</div>
+	
+	</body>
+	<div class="footer">
+  <p>📚Nothing is "PLEASANTER" than exploring a "LIBRARY"📚.</p>
+</div>
+</html>
